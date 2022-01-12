@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Inventory{% endblock %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Location</th>
+            <th>Unit Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in inventory %}
+        <tr>
+            <td><a href="/inventory/{{item.sku}}">{{item.sku}}</a></td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.unit}}</td>
+            <td>{{item.location}}</td>
+            <td>{{item.unit_cost}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -21,7 +21,7 @@ def show_inventory():
 
     inventory = crud.get_all_inventory()
     
-    return render_templates('inventory.html', inventory = inventory)
+    return render_template('inventory.html', inventory = inventory)
 
 
 @app.route("/inventory/<sku>")

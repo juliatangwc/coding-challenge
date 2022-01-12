@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Logistic Web App Home{% endblock %}
+
+{% block body %}
+  <h1>Welcome!</h1>
+
+  <h2>Navigation</h2>
+  <form>
+    <button type="submit" value="view_all" formaction="/inventory">View Inventory</button>
+    <button type="submit" value="search_item" formaction="/search">Search for Item</button>
+    </form>
+
+{% endblock %}
