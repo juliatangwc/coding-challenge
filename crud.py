@@ -22,6 +22,18 @@ def get_item_by_sku(sku):
     
     return Inventory.query.get(sku)
 
+def update_item(sku, name, description, quantity, unit, unit_cost, location):
+    """Update the details of an inventory item."""
+
+    item = Inventory.query.get(sku)
+    item.name = name
+    item.description = description
+    item.quantity = quantity
+    item.unit = unit
+    item.unit_cost = unit_cost
+    item.location = location
+    
+    return item
 
 
 if __name__ == '__main__':

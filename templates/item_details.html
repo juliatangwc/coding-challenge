@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.name }} - Details{% endblock %}
+
+{% block body %}
+<h2>{{item.name}} - Details</h2>
+
+<p><b>SKU:</b>{{item.sku}}</p>
+
+<p><b>Name:</b>{{item.name}}</p>
+
+<p><b>Description:</b>{{item.description}}</p>
+
+<p><b>Quantity:</b>{{item.quantity}}</p>
+
+<p><b>Unit:</b>{{item.unit}}</p>
+
+<p><b>Unit Cost:</b>{{item.unit_cost}}</p>
+
+<p><b>Location:</b>{{item.location}}</p>
+
+<form action= "/edit">
+    <input type="hidden" id="sku" name="sku" value={{item.sku}}>
+    <button type="submit" value="edit">Edit</button>
+  </form>
+<br>
+<form action= "/delete" method="POST">
+  <input type="hidden" id="sku" name="sku" value={{item.sku}}>
+  <button type="submit" value="delete"
+  onclick="return confirm('Are you sure you want to delete this item')">Delete</button>
+</form>
+
+{% endblock %}
