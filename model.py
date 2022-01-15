@@ -19,6 +19,8 @@ class Inventory(db.Model):
     unit = db.Column(db.String)
     location = db.Column(db.String)
     unit_cost = db.Column(db.Numeric(18,2))
+    image = db.Column(db.String)
+    
 
 
     def __repr__(self):

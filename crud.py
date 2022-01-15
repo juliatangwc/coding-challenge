@@ -3,12 +3,12 @@
 from model import db, Inventory, connect_to_db
 
 
-def create_inventory_item(sku, name, description, quantity, unit, location, unit_cost):
+def create_inventory_item(sku, name, description, quantity, unit, location, unit_cost, image):
     """Create and return a new inventory item."""
 
     item = Inventory (sku=sku, name=name, description=description,
                         quantity=quantity, unit=unit, location=location,
-                        unit_cost=unit_cost)
+                        unit_cost=unit_cost, image=image)
 
     return item
 
@@ -23,7 +23,8 @@ def get_item_by_sku(sku):
     return Inventory.query.get(sku)
 
 def update_item(sku, name, description, quantity, unit, unit_cost, location):
-    """Update the details of an inventory item."""
+    """Update the details of an inventory item in database.
+        Return an updated item."""
 
     item = Inventory.query.get(sku)
     item.name = name
@@ -35,6 +36,14 @@ def update_item(sku, name, description, quantity, unit, unit_cost, location):
     
     return item
 
+def update_image(sku, image):
+    """Upload a file path to database given an item's SKU.
+        Return an updated item."""
+
+    item = Inventory.query.get(sku)
+    item.image = image
+
+    return item
 
 if __name__ == '__main__':
     from server import app

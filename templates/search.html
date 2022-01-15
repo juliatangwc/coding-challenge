@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Search for item by SKU{% endblock %}
+
+{% block body %}
+<h2>Search for item by SKU</h2>
+
+<form action= "/result">
+    
+    <label for="sku">SKU:</label>   
+    <input type="text" id="sku" name="sku" required>
+    <button type="submit">Submit</button>
+  </form>
+
+
+{% endblock %}

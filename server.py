@@ -1,14 +1,21 @@
 """Server for logistic inventory app."""
 
+import os
 from flask import Flask, render_template, redirect, request, flash, session
+from werkzeug.utils import secure_filename
 from model import connect_to_db, db
 import crud
 
 from jinja2 import StrictUndefined
 
+UPLOAD_FOLDER = "static/uploads"
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route("/")
@@ -34,15 +41,18 @@ def create_item():
     unit = request.form.get("unit")
     unit_cost = request.form.get("unit_cost")
     location = request.form.get("location")
-    
-    item = crud.create_inventory_item(sku, name, description, 
-                                    quantity, unit, location, 
-                                    unit_cost)
-    
-    db.session.add(item)
-    db.session.commit()
+    image = ""
 
-    return redirect (f"/inventory/{sku}")
+    if sku.isdigit():
+        item = crud.create_inventory_item(sku, name, description, 
+                                        quantity, unit, location, 
+                                        unit_cost, image)
+        db.session.add(item)
+        db.session.commit()
+        return redirect (f"/inventory/{sku}")
+    else:
+        flash("Please enter a valid SKU (Integers only).")
+        return redirect("/create")
 
 @app.route('/inventory')
 def show_inventory():
@@ -101,6 +111,58 @@ def edit_item():
     
 
     return redirect(f"/inventory/{sku}")
+
+@app.route("/search")
+def show_search_form():
+    """Show form to search for a particular item."""
+
+    return render_template("search.html")
+
+@app.route("/result")
+def locate_item():
+    """Locate a particular item"""
+    
+    sku = request.args.get("sku")
+    
+    if sku.isdigit():
+        item = crud.get_item_by_sku(sku)
+        if item:
+            return redirect(f"/inventory/{sku}")
+        else:
+            flash("Invalid SKU. Try again.")
+            return redirect("/search")
+    else:
+        flash("Please enter integers only.")
+        return redirect("/search")
+
+def allowed_file(filename):
+    return ('.' in filename and
+            filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS)
+
+@app.route("/image", methods=["GET", "POST"])
+def upload_image_():
+    """Allow user to upload a product image."""
+    
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash("Cannot locate file. Please try again.")
+            return redirect(request.url)
+        sku = request.form.get("sku")
+        file = request.files["file"]
+        if file.filename == "":
+            flash("No selected file. Please try again.")
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(path)
+            item = crud.update_image(sku, f"/static/uploads/{filename}")
+            db.session.add(item)
+            db.session.commit()
+
+            flash("Success! Image uploaded.")
+            return redirect(request.url)
+    return redirect ("/inventory")
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

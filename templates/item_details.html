@@ -5,6 +5,12 @@
 {% block body %}
 <h2>{{item.name}} - Details</h2>
 
+{% if item.image != "" %}
+
+<img src={{item.image}} width=300px height=auto>
+
+{% endif %} 
+
 <p><b>SKU:</b>{{item.sku}}</p>
 
 <p><b>Name:</b>{{item.name}}</p>
@@ -19,6 +25,12 @@
 
 <p><b>Location:</b>{{item.location}}</p>
 
+<form action= "/image" method="POST" enctype=multipart/form-data>
+  <input type="hidden" id="sku" name="sku" value={{item.sku}}>
+  <input type=file name=file>
+  <button type="submit" value="upload">Upload</button>
+</form>
+<br>
 <form action= "/edit">
     <input type="hidden" id="sku" name="sku" value={{item.sku}}>
     <button type="submit" value="edit">Edit</button>

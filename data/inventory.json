@@ -6,7 +6,8 @@
       "quantity": "50",
       "unit": "each",
       "location": "Row 1",
-      "unit_cost": "10.00"
+      "unit_cost": "10.00",
+      "image": ""
     },
     {
         "sku": "2078736",
@@ -15,7 +16,8 @@
         "quantity": "20",
         "unit": "each",
         "location": "Row 1",
-        "unit_cost": "15.50"
+        "unit_cost": "15.50",
+        "image": ""
     },
     {
         "sku": "2640273",
@@ -24,7 +26,8 @@
         "quantity": "78",
         "unit": "each",
         "location": "Row 2",
-        "unit_cost": "20.00"
+        "unit_cost": "20.00",
+        "image": ""
     },
     {
         "sku": "1018093",
@@ -33,7 +36,8 @@
         "quantity": "88",
         "unit": "pack (12pc/pack)",
         "location": "Row 10",
-        "unit_cost": "15.00"
+        "unit_cost": "15.00",
+        "image": ""
     },
     {
         "sku": "3864049",
@@ -42,7 +46,8 @@
         "quantity": "96",
         "unit": "each",
         "location": "Row 8",
-        "unit_cost": "33.25"
+        "unit_cost": "33.25",
+        "image": ""
     },
     {
         "sku": "7087310",
@@ -51,7 +56,8 @@
         "quantity": "78",
         "unit": "pound",
         "location": "Row 6",
-        "unit_cost": "8.99"
+        "unit_cost": "8.99",
+        "image": ""
     },
     {
         "sku": "3387200",
@@ -60,7 +66,8 @@
         "quantity": "42",
         "unit": "each",
         "location": "Row 6",
-        "unit_cost": "25.00"
+        "unit_cost": "25.00",
+        "image": ""
     },
     {
         "sku": "1177790",
@@ -69,7 +76,8 @@
         "quantity": "66",
         "unit": "pack (6pcs/pack)",
         "location": "Row 3",
-        "unit_cost": "18.00"
+        "unit_cost": "18.00",
+        "image": ""
     },
     {
         "sku": "2712778",
@@ -78,7 +86,8 @@
         "quantity": "76",
         "unit": "each",
         "location": "Row 7",
-        "unit_cost": "55.25"
+        "unit_cost": "55.25",
+        "image": ""
     },
     {
         "sku": "3682403",
@@ -87,7 +96,8 @@
         "quantity": "35",
         "unit": "pound",
         "location": "Row 8",
-        "unit_cost": "3.99"
+        "unit_cost": "3.99",
+        "image": ""
     },
     {
         "sku": "9417356",
@@ -96,7 +106,8 @@
         "quantity": "5",
         "unit": "case (12bottles/case)",
         "location": "Row 9",
-        "unit_cost": "199.99"
+        "unit_cost": "199.99",
+        "image": ""
     },
     {
         "sku": "5893782",
@@ -105,7 +116,8 @@
         "quantity": "30",
         "unit": "each",
         "location": "Row 4",
-        "unit_cost": "5.99"
+        "unit_cost": "5.99",
+        "image": ""
     },
     {
         "sku": "1054082",
@@ -114,7 +126,8 @@
         "quantity": "56",
         "unit": "crate",
         "location": "Row 2",
-        "unit_cost": "18.00"
+        "unit_cost": "18.00",
+        "image": ""
     },
     {
         "sku": "8886127",
@@ -123,7 +136,8 @@
         "quantity": "21",
         "unit": "each",
         "location": "Row 1",
-        "unit_cost": "13.85"
+        "unit_cost": "13.85",
+        "image": ""
     },
     {
         "sku": "6300699",
@@ -132,7 +146,8 @@
         "quantity": "44",
         "unit": "each",
         "location": "Row 6",
-        "unit_cost": "9.80"
+        "unit_cost": "9.80",
+        "image": ""
     },
     {
         "sku": "8994405",
@@ -141,7 +156,8 @@
         "quantity": "5",
         "unit": "bucket",
         "location": "Row 6",
-        "unit_cost": "23.99"
+        "unit_cost": "23.99",
+        "image": ""
     },
     {
         "sku": "7280309",
@@ -150,7 +166,8 @@
         "quantity": "66",
         "unit": "each",
         "location": "Row 8",
-        "unit_cost": "19.25"
+        "unit_cost": "19.25",
+        "image": ""
     },
     {
         "sku": "9666545",
@@ -159,7 +176,8 @@
         "quantity": "30",
         "unit": "each",
         "location": "Row 4",
-        "unit_cost": "15.00"
+        "unit_cost": "15.00",
+        "image": ""
     },
     {
         "sku": "1874691",
@@ -168,7 +186,8 @@
         "quantity": "6",
         "unit": "box",
         "location": "Row 7",
-        "unit_cost": "50.00"
+        "unit_cost": "50.00",
+        "image": ""
     },
     {
         "sku": "3941202",
@@ -177,6 +196,7 @@
         "quantity": "8",
         "unit": "box",
         "location": "Row 7",
-        "unit_cost": "76.84"
+        "unit_cost": "76.84",
+        "image": ""
     }
 ]
