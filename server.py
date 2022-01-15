@@ -11,11 +11,38 @@ app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
 
-@app.route('/')
+@app.route("/")
 def show_homepage():
     """Show homepage with navigation buttons."""
     
-    return render_template('homepage.html')
+    return render_template("homepage.html")
+
+@app.route("/create")
+def show_form_create_item():
+    """Show form to create a new item in inventory."""
+
+    return render_template("create_item.html")
+
+@app.route("/create", methods=["POST"])
+def create_item():
+    """Create a new inventory item."""
+    
+    sku = request.form.get("sku")
+    name = request.form.get("name")
+    description = request.form.get("description")
+    quantity = request.form.get("quantity")
+    unit = request.form.get("unit")
+    unit_cost = request.form.get("unit_cost")
+    location = request.form.get("location")
+    
+    item = crud.create_inventory_item(sku, name, description, 
+                                    quantity, unit, location, 
+                                    unit_cost)
+    
+    db.session.add(item)
+    db.session.commit()
+
+    return redirect (f"/inventory/{sku}")
 
 @app.route('/inventory')
 def show_inventory():
@@ -57,7 +84,6 @@ def show_edit_item_form():
 @app.route("/edit", methods=["POST"])
 def edit_item():
     """Edit a particular item"""
-    #Start working here
     
     sku = request.form.get("sku")
     name = request.form.get("name")
@@ -66,9 +92,12 @@ def edit_item():
     unit = request.form.get("unit")
     unit_cost = request.form.get("unit_cost")
     location = request.form.get("location")
-    
+
     item = crud.update_item(sku, name, description, quantity,
                             unit, unit_cost, location)
+    
+    db.session.add(item)
+    db.session.commit()
     
 
     return redirect(f"/inventory/{sku}")

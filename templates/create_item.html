@@ -1,54 +1,51 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ item.name }} - Edit{% endblock %}
+{% block title %}Create a new item{% endblock %}
 
 {% block body %}
-<h2>{{item.name}} - Edit</h2>
+<h2>Create a new item</h2>
 
-<form action= "/edit" method="POST">
+<form action= "/create" method="POST">
     
     <label for="sku">SKU:</label>   
-    <input type="text" readonly="readonly" id="sku" name="sku" value="{{item.sku}}" required>
+    <input type="text" id="sku" name="sku" required>
     <br>
     <br>
     
     <label for="name">Name:</label>   
-    <input type="text" id="name" name="name" value="{{item.name}}" required>
+    <input type="text" id="name" name="name" required>
     <br>
     <br>
 
     <label for="description">Description:</label>
     <br>
     <textarea id="description" name="description" rows="4" cols="50">
-    {{item.description}}
     </textarea>
     <br>
     <br>
 
     <label for="quantity">Quantity:</label>   
-    <input type="text" id="quantity" name="quantity" value="{{item.quantity}}" required>
+    <input type="text" id="quantity" name="quantity" required>
     <br>
     <br>
 
     <label for="unit">Unit:</label>   
-    <input type="text" id="unit" name="unit" value="{{item.unit}}" required>
+    <input type="text" id="unit" name="unit" required>
     <br>
     <br>
     
     <label for="unit_cost">Unit Cost:</label>   
-    <input type="text" id="unit_cost" name="unit_cost" value="{{item.unit_cost}}" required>
+    <input type="text" id="unit_cost" name="unit_cost" required>
     <br>
     <br>
     
     <label for="location">Location:</label>   
-    <input type="text" id="location" name="location" value="{{item.location}}" required>
+    <input type="text" id="location" name="location" required>
     <br>
     <br>
 
     <button type="submit">Submit</button>
   </form>
-
-
 
 
 {% endblock %}
