@@ -20,6 +20,7 @@ class Inventory(db.Model):
     location = db.Column(db.String)
     unit_cost = db.Column(db.Numeric(18,2))
     image = db.Column(db.String)
+    thumbnail = db.Column(db.String)
     
 
 

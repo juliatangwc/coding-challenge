@@ -1,14 +1,14 @@
-"""CRUD operations."""
+"""Helper functions for CRUD operations."""
 
 from model import db, Inventory, connect_to_db
 
 
-def create_inventory_item(sku, name, description, quantity, unit, location, unit_cost, image):
+def create_inventory_item(sku, name, description, quantity, unit, location, unit_cost, image, thumbnail):
     """Create and return a new inventory item."""
 
     item = Inventory (sku=sku, name=name, description=description,
                         quantity=quantity, unit=unit, location=location,
-                        unit_cost=unit_cost, image=image)
+                        unit_cost=unit_cost, image=image, thumbnail=thumbnail)
 
     return item
 
@@ -36,12 +36,13 @@ def update_item(sku, name, description, quantity, unit, unit_cost, location):
     
     return item
 
-def update_image(sku, image):
-    """Upload a file path to database given an item's SKU.
+def update_image(sku, image, thumbnail):
+    """Upload file path for image and thumbnail to database given an item's SKU.
         Return an updated item."""
 
     item = Inventory.query.get(sku)
     item.image = image
+    item.thumbnail = thumbnail
 
     return item
 

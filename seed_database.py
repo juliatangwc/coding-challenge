@@ -26,10 +26,11 @@ for item in inventory_data:
     location = item['location']
     unit_cost = item['unit_cost']
     image = item['image']
+    thumbnail = item['thumbnail']
 
     new_item = crud.create_inventory_item (sku, name, description,
                                             quantity, unit, location,
-                                            unit_cost, image)
+                                            unit_cost, image, thumbnail)
     model.db.session.add(new_item)
 
 model.db.session.commit()

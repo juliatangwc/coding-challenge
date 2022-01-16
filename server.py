@@ -3,6 +3,7 @@
 import os
 from flask import Flask, render_template, redirect, request, flash, session
 from werkzeug.utils import secure_filename
+from PIL import Image
 from model import connect_to_db, db
 import crud
 
@@ -42,13 +43,15 @@ def create_item():
     unit_cost = request.form.get("unit_cost")
     location = request.form.get("location")
     image = ""
+    thumbnail = ""
 
     if sku.isdigit():
         item = crud.create_inventory_item(sku, name, description, 
                                         quantity, unit, location, 
-                                        unit_cost, image)
+                                        unit_cost, image, thumbnail)
         db.session.add(item)
         db.session.commit()
+        flash ("New item created.")
         return redirect (f"/inventory/{sku}")
     else:
         flash("Please enter a valid SKU (Integers only).")
@@ -79,6 +82,7 @@ def delete_item():
     item = crud.get_item_by_sku(sku)
     db.session.delete(item)
     db.session.commit()
+    flash ("Item deleted.")
 
     return redirect ("/inventory")
 
@@ -109,7 +113,7 @@ def edit_item():
     db.session.add(item)
     db.session.commit()
     
-
+    flash ("Item updated.")
     return redirect(f"/inventory/{sku}")
 
 @app.route("/search")
@@ -141,27 +145,38 @@ def allowed_file(filename):
 
 @app.route("/image", methods=["GET", "POST"])
 def upload_image_():
-    """Allow user to upload a product image."""
+    """Allow user to upload a product image.
+        Create a thumbnail and update database with path."""
     
     if request.method == 'POST':
+
         if 'file' not in request.files:
             flash("Cannot locate file. Please try again.")
             return redirect(request.url)
         sku = request.form.get("sku")
         file = request.files["file"]
+
         if file.filename == "":
             flash("No selected file. Please try again.")
             return redirect(request.url)
+
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(path)
-            item = crud.update_image(sku, f"/static/uploads/{filename}")
+            
+            image = Image.open(file)
+            image.thumbnail((100,100))
+            thumbpath = os.path.join(app.config["UPLOAD_FOLDER"], f"thumb{filename}")
+            image.save(thumbpath)
+            
+            item = crud.update_image(sku, f"/static/uploads/{filename}", f"/static/uploads/thumb{filename}")
             db.session.add(item)
             db.session.commit()
 
             flash("Success! Image uploaded.")
             return redirect(request.url)
+    
     return redirect ("/inventory")
 
 if __name__ == "__main__":
