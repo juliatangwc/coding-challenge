@@ -11,3 +11,17 @@
     $python3 seed_database.py
 6. Run server with "server.py"
     $python3 server.py
+
+
+#Data schema:
+Each row will have the following columns:
+SKU - integer (primary key, unique)
+Name - string
+Description - text
+Quantity - integer
+Unit - string
+Location - string
+Unit Cost - numeric (2 decimal places)
+Image - string (path to image)
+Thumbnail - string (path to thumbnail)
+    
