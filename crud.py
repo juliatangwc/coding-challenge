@@ -46,6 +46,12 @@ def update_image(sku, image, thumbnail):
 
     return item
 
+def check_sku(sku):
+    """Check if item with SKU exists in database."""
+
+    return Inventory.query.filter_by(sku = sku).first()
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

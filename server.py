@@ -46,13 +46,17 @@ def create_item():
     thumbnail = ""
 
     if sku.isdigit():
-        item = crud.create_inventory_item(sku, name, description, 
+        if crud.check_sku(sku) is None:
+            item = crud.create_inventory_item(sku, name, description, 
                                         quantity, unit, location, 
                                         unit_cost, image, thumbnail)
-        db.session.add(item)
-        db.session.commit()
-        flash ("New item created.")
-        return redirect (f"/inventory/{sku}")
+            db.session.add(item)
+            db.session.commit()
+            flash ("New item created.")
+            return redirect (f"/inventory/{sku}")
+        else:
+            flash ("New item cannot be created. SKU already in system.")
+            return redirect("/create")
     else:
         flash("Please enter a valid SKU (Integers only).")
         return redirect("/create")
@@ -170,7 +174,7 @@ def upload_image_():
             thumbpath = os.path.join(app.config["UPLOAD_FOLDER"], f"thumb{filename}")
             image.save(thumbpath)
             
-            item = crud.update_image(sku, f"/static/uploads/{filename}", f"/static/uploads/thumb{filename}")
+            item = crud.update_image(sku, path, thumbpath)
             db.session.add(item)
             db.session.commit()
 

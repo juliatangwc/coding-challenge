@@ -11,8 +11,8 @@ class Inventory(db.Model):
     __tablename__ = "inventory"
 
     sku = db.Column(db.Integer,
-                    autoincrement=True,
-                    primary_key=True)
+                    primary_key=True,
+                    unique = True)
     name = db.Column(db.String)
     description = db.Column(db.Text)
     quantity = db.Column(db.Integer)
