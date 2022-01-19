@@ -20,15 +20,15 @@
 
 # Data schema
 Each row will have the following columns:
-SKU - integer (primary key, unique)
-Name - string
-Description - text
-Quantity - integer
-Unit - string
-Location - string
-Unit Cost - numeric (2 decimal places)
-Image - string (path to image)
-Thumbnail - string (path to thumbnail)
+- SKU - integer (primary key, unique)
+- Name - string
+- Description - text
+- Quantity - integer
+- Unit - string
+- Location - string
+- Unit Cost - numeric (2 decimal places)
+- Image - string (path to image)
+- Thumbnail - string (path to thumbnail)
 
 # Challenge requirements and features
 This app contains all basic CRUD functionality with an additional feature for image upload. 
