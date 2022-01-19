@@ -174,7 +174,7 @@ def upload_image_():
             thumbpath = os.path.join(app.config["UPLOAD_FOLDER"], f"thumb{filename}")
             image.save(thumbpath)
             
-            item = crud.update_image(sku, path, thumbpath)
+            item = crud.update_image(sku, f"/static/uploads/{filename}", f"/static/uploads/thumb{filename}")
             db.session.add(item)
             db.session.commit()
 
