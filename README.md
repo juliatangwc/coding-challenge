@@ -1,4 +1,10 @@
-# Instructions for running application
+# Dev environment
+1. Please have the following installed:
+    - PostgreSQL https://www.postgresql.org/download/
+    - Python https://www.python.org/downloads/
+    - VirtualEnv https://pypi.org/project/virtualenv/
+
+# Instructions for running application    
 1. Create a virtual environment 
     $virtualenv env
 2. Activate virtual environment
