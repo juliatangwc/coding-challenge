@@ -1,4 +1,4 @@
-"""Models for logistic app."""
+"""Models for inventory app for a logistic company."""
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -22,10 +22,11 @@ class Inventory(db.Model):
     image = db.Column(db.String)
     thumbnail = db.Column(db.String)
     
-
-
     def __repr__(self):
         return f"<Item SKU={self.sku} Name={self.name}>"
+    
+class Warehouse(db.Model):
+    """A
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///inventory", echo=True):
