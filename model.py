@@ -27,7 +27,7 @@ class Inventory(db.Model):
     
     @classmethod
     def create_inventory_item(cls, sku, warehouse_id, name, description, quantity, unit, unit_cost):
-        """Create and return a new inventory item."""
+        """Create and return a new inventory item instance."""
 
         return cls(sku=sku, warehouse_id=warehouse_id, name=name, description=description,
                     quantity=quantity, unit=unit, unit_cost=unit_cost)
@@ -35,7 +35,7 @@ class Inventory(db.Model):
 class Warehouse(db.Model):
     """A warehouse for inventory storage."""
 
-    __tablename__ = "inventory"
+    __tablename__ = "warehouse"
 
     warehouse_id = db.Column (db.Integer,
                                 autoincrement=True,
@@ -47,6 +47,12 @@ class Warehouse(db.Model):
 
     def __repr__(self):
         return f"<Warehouse ID={self.warehouse_id} Location={self.location}"
+
+    @classmethod
+    def create_warehouse(cls, city_code, city_name):
+        """Create and return a warehouse instance."""
+
+        return cls(city_code=city_code, city_name=city_name)
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///inventory", echo=True):

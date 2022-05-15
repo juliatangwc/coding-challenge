@@ -1,26 +1,21 @@
 [
     {
-        "warehouse_id": "1",
         "city_code": "ATL",
         "city_name": "Atlanta"
     },
     {
-        "warehouse_id": "2",
         "city_code": "CHI",
         "city_name": "Chicago"
     },
     {
-        "warehouse_id": "3",
         "city_code": "LAS",
         "city_name": "Los Angeles"
     },
     {
-        "warehouse_id": "4",
         "city_code": "HOU",
         "city_name": "Houston"
     },
     {
-        "warehouse_id": "5",
         "city_code": "MEM",
         "city_name": "Memphis"
     }
