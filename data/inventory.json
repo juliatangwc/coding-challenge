@@ -5,216 +5,178 @@
       "name": "Item 1",
       "description": "Item 1 description",
       "quantity": "50",
-      "unit": "each",
-      "unit_cost": "10.00",
+      "unit": "box",
+      "unit_cost": "10.00"
     },
     {
         "sku": "2078736",
+        "warehouse_id": "1",
         "name": "Item 2",
         "description": "Item 2 description",
         "quantity": "20",
-        "unit": "each",
-        "location": "Row 1",
-        "unit_cost": "15.50",
-        "image": "",
-        "thumbnail": ""
+        "unit": "box",
+        "unit_cost": "15.50"
     },
     {
         "sku": "2640273",
+        "warehouse_id": "1",
         "name": "Item 3",
         "description": "Item 3 description",
         "quantity": "78",
         "unit": "each",
-        "location": "Row 2",
-        "unit_cost": "20.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "20.00"
     },
     {
         "sku": "1018093",
+        "warehouse_id": "1",
         "name": "Item 4",
         "description": "Item 4 description",
         "quantity": "88",
         "unit": "pack (12pc/pack)",
-        "location": "Row 10",
-        "unit_cost": "15.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "15.00"
     },
     {
         "sku": "3864049",
+        "warehouse_id": "2",
         "name": "Item 5",
         "description": "Item 5 description",
         "quantity": "96",
         "unit": "each",
-        "location": "Row 8",
-        "unit_cost": "33.25",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "33.25"
     },
     {
         "sku": "7087310",
+        "warehouse_id": "2",
         "name": "Item 6",
         "description": "Item 6 description",
         "quantity": "78",
-        "unit": "pound",
-        "location": "Row 6",
-        "unit_cost": "8.99",
-        "image": "",
-        "thumbnail": ""
+        "unit": "box",
+        "unit_cost": "8.99"
     },
     {
         "sku": "3387200",
+        "warehouse_id": "2",
         "name": "Item 7",
         "description": "Item 7 description",
         "quantity": "42",
         "unit": "each",
-        "location": "Row 6",
-        "unit_cost": "25.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "25.00"
     },
     {
         "sku": "1177790",
+        "warehouse_id": "2",
         "name": "Item 8",
         "description": "Item 8 description",
         "quantity": "66",
         "unit": "pack (6pcs/pack)",
-        "location": "Row 3",
-        "unit_cost": "18.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "18.00"
     },
     {
         "sku": "2712778",
+        "warehouse_id": "3",
         "name": "Item 9",
         "description": "Item 9 description",
         "quantity": "76",
         "unit": "each",
-        "location": "Row 7",
-        "unit_cost": "55.25",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "55.25"
     },
     {
         "sku": "3682403",
+        "warehouse_id": "3",
         "name": "Item 10",
         "description": "Item 10 description",
         "quantity": "35",
         "unit": "pound",
-        "location": "Row 8",
-        "unit_cost": "3.99",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "3.99"
     },
     {
         "sku": "9417356",
+        "warehouse_id": "3",
         "name": "Item 11",
         "description": "Item 11 description",
         "quantity": "5",
         "unit": "case (12bottles/case)",
-        "location": "Row 9",
-        "unit_cost": "199.99",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "199.99"
     },
     {
         "sku": "5893782",
+        "warehouse_id": "3",
         "name": "Item 12",
         "description": "Item 12 description",
         "quantity": "30",
         "unit": "each",
-        "location": "Row 4",
-        "unit_cost": "5.99",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "5.99"
     },
     {
         "sku": "1054082",
+        "warehouse_id": "4",
         "name": "Item 13",
         "description": "Item 13 description",
         "quantity": "56",
         "unit": "crate",
-        "location": "Row 2",
-        "unit_cost": "18.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "18.00"
     },
     {
         "sku": "8886127",
+        "warehouse_id": "4",
         "name": "Item 14",
         "description": "Item 14 description",
         "quantity": "21",
         "unit": "each",
-        "location": "Row 1",
-        "unit_cost": "13.85",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "13.85"
     },
     {
         "sku": "6300699",
+        "warehouse_id": "4",
         "name": "Item 15",
         "description": "Item 15 description",
         "quantity": "44",
         "unit": "each",
-        "location": "Row 6",
-        "unit_cost": "9.80",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "9.80"
     },
     {
         "sku": "8994405",
+        "warehouse_id": "4",
         "name": "Item 16",
         "description": "Item 16 description",
         "quantity": "5",
         "unit": "bucket",
-        "location": "Row 6",
-        "unit_cost": "23.99",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "23.99"
     },
     {
         "sku": "7280309",
+        "warehouse_id": "5",
         "name": "Item 17",
         "description": "Item 17 description",
         "quantity": "66",
         "unit": "each",
-        "location": "Row 8",
-        "unit_cost": "19.25",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "19.25"
     },
     {
         "sku": "9666545",
+        "warehouse_id": "5",
         "name": "Item 18",
         "description": "Item 18 description",
         "quantity": "30",
         "unit": "each",
-        "location": "Row 4",
-        "unit_cost": "15.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "15.00"
     },
     {
         "sku": "1874691",
+        "warehouse_id": "5",
         "name": "Item 19",
         "description": "Item 19 description",
         "quantity": "6",
         "unit": "box",
-        "location": "Row 7",
-        "unit_cost": "50.00",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "50.00"
     },
     {
         "sku": "3941202",
+        "warehouse_id": "5",
         "name": "Item 20",
         "description": "Item 20 description",
         "quantity": "8",
         "unit": "box",
-        "location": "Row 7",
-        "unit_cost": "76.84",
-        "image": "",
-        "thumbnail": ""
+        "unit_cost": "76.84"
     }
 ]
