@@ -1,14 +1,12 @@
 [
     {
       "sku": "1036505",
+      "warehouse_id": "1",
       "name": "Item 1",
       "description": "Item 1 description",
       "quantity": "50",
       "unit": "each",
-      "location": "Row 1",
       "unit_cost": "10.00",
-      "image": "",
-      "thumbnail": ""
     },
     {
         "sku": "2078736",
