@@ -3,34 +3,30 @@
 import os
 import json
 
-import crud
-import model
-import server
+from model import connect_to_db, db, Inventory, Warehouse
 
 os.system("dropdb inventory")
 os.system('createdb inventory')
 
-model.connect_to_db(server.app)
-model.db.create_all()
+connect_to_db(server.app)
+db.create_all()
 
 # Load inventory data from JSON file
 with open('data/inventory.json') as f:
     inventory_data = json.loads(f.read())
 
+#Create new instance of inventory item in database
 for item in inventory_data:
     sku = item['sku']
+    warehouse_id = item['warehouse_id']
     name = item['name']
     description = item['description']
     quantity = item['quantity']
     unit = item['unit']
-    location = item['location']
     unit_cost = item['unit_cost']
-    image = item['image']
-    thumbnail = item['thumbnail']
 
-    new_item = crud.create_inventory_item (sku, name, description,
-                                            quantity, unit, location,
-                                            unit_cost, image, thumbnail)
+    new_item = Inventory.create_inventory_item (sku, warehouse_id, name, description,
+                                                quantity, unit, unit_cost)
     model.db.session.add(new_item)
 
 model.db.session.commit()

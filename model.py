@@ -6,27 +6,47 @@ db = SQLAlchemy()
 
 
 class Inventory(db.Model):
-    """A item in the inventory."""
+    """An item in the inventory."""
 
     __tablename__ = "inventory"
 
     sku = db.Column(db.Integer,
                     primary_key=True,
                     unique = True)
+    warehouse_id = db.Column(db.Integer, db.ForeignKey("warehouse.warehouse_id"))
     name = db.Column(db.String)
     description = db.Column(db.Text)
     quantity = db.Column(db.Integer)
     unit = db.Column(db.String)
-    location = db.Column(db.String)
     unit_cost = db.Column(db.Numeric(18,2))
-    image = db.Column(db.String)
-    thumbnail = db.Column(db.String)
+
+    warehouse = db.relationship('Warehouse', back_populates="inventory_item")
     
     def __repr__(self):
         return f"<Item SKU={self.sku} Name={self.name}>"
     
+    @classmethod
+    def create_inventory_item(cls, sku, warehouse_id, name, description, quantity, unit, unit_cost):
+        """Create and return a new inventory item."""
+
+        return cls(sku=sku, warehouse_id=warehouse_id, name=name, description=description,
+                    quantity=quantity, unit=unit, unit_cost=unit_cost)
+
 class Warehouse(db.Model):
-    """A
+    """A warehouse for inventory storage."""
+
+    __tablename__ = "inventory"
+
+    warehouse_id = db.Column (db.Integer,
+                                autoincrement=True,
+                                primary_key=True)
+    city_code = db.Column(db.String)
+    city_name = db.Column(db.String)
+
+    inventory_item = db.relationship('Inventory', back_populates="warehouse")
+
+    def __repr__(self):
+        return f"<Warehouse ID={self.warehouse_id} Location={self.location}"
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///inventory", echo=True):
@@ -42,9 +62,5 @@ def connect_to_db(flask_app, db_uri="postgresql:///inventory", echo=True):
 
 if __name__ == "__main__":
     from server import app
-
-    # Call connect_to_db(app, echo=False) if your program output gets
-    # too annoying; this will tell SQLAlchemy not to print out every
-    # query it executes.
 
     connect_to_db(app)

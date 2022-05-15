@@ -2,21 +2,14 @@
 
 import os
 from flask import Flask, render_template, redirect, request, flash, session
-from werkzeug.utils import secure_filename
-from PIL import Image
-from model import connect_to_db, db
+from model import connect_to_db, db, Inventory, Warehouse
 import crud
 
 from jinja2 import StrictUndefined
 
-UPLOAD_FOLDER = "static/uploads"
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-
-
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route("/")
@@ -42,8 +35,6 @@ def create_item():
     unit = request.form.get("unit")
     unit_cost = request.form.get("unit_cost")
     location = request.form.get("location")
-    image = ""
-    thumbnail = ""
 
     if sku.isdigit():
         if crud.check_sku(sku) is None:
@@ -143,45 +134,7 @@ def locate_item():
         flash("Please enter integers only.")
         return redirect("/search")
 
-def allowed_file(filename):
-    return ('.' in filename and
-            filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS)
 
-@app.route("/image", methods=["GET", "POST"])
-def upload_image_():
-    """Allow user to upload a product image.
-        Create a thumbnail and update database with path."""
-    
-    if request.method == 'POST':
-
-        if 'file' not in request.files:
-            flash("Cannot locate file. Please try again.")
-            return redirect(request.url)
-        sku = request.form.get("sku")
-        file = request.files["file"]
-
-        if file.filename == "":
-            flash("No selected file. Please try again.")
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-            file.save(path)
-            
-            image = Image.open(file)
-            image.thumbnail((100,100))
-            thumbpath = os.path.join(app.config["UPLOAD_FOLDER"], f"thumb{filename}")
-            image.save(thumbpath)
-            
-            item = crud.update_image(sku, f"/static/uploads/{filename}", f"/static/uploads/thumb{filename}")
-            db.session.add(item)
-            db.session.commit()
-
-            flash("Success! Image uploaded.")
-            return redirect(request.url)
-    
-    return redirect ("/inventory")
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
