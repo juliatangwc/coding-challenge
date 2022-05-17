@@ -41,8 +41,16 @@
     <br>
     <br>
     
-    <label for="location">Location:</label>   
-    <input type="text" id="location" name="location" value="{{item.location}}" required>
+    <label for="warehouse">Warehouse:</label>
+    <select name="warehouse" id="warehouse" required>
+      {% for warehouse in warehouses %}
+        {% if item.warehouse == warehouse %}
+          <option value={{warehouse.warehouse_id}} selected>{{warehouse.city_name}}({{warehouse.city_code}})</option>
+        {% else %}
+          <option value={{warehouse.warehouse_id}}>{{warehouse.city_name}}({{warehouse.city_code}})</option>
+        {% endif %}
+      {% endfor %}
+    </select>
     <br>
     <br>
 

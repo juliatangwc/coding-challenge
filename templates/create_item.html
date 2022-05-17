@@ -5,7 +5,7 @@
 {% block body %}
 <h2>Create a new item</h2>
 
-<form action= "/create" method="POST">
+<form action= "/create-item" method="POST">
     
     <label for="sku">SKU:</label>   
     <input type="number" id="sku" name="sku" required>
@@ -38,14 +38,17 @@
     <input type="text" id="unit_cost" name="unit_cost" required>
     <br>
     <br>
-    
-    <label for="location">Location:</label>   
-    <input type="text" id="location" name="location" required>
+
+    <label for="warehouse">Warehouse:</label>
+    <select name="warehouse" id="warehouse">
+      {% for warehouse in warehouses %}
+        <option value={{warehouse.warehouse_id}}>{{warehouse.city_name}}({{warehouse.city_code}})</option>
+      {% endfor %}
+    </select>
     <br>
     <br>
 
     <button type="submit">Submit</button>
   </form>
-
 
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Warehouse List{% endblock %}
+
+{% block body %}
+<table border="1" cellpadding="15">
+    <thead>
+        <tr>
+            <th>Warehouse ID</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for warehouse in warehouses %}
+        <tr>
+            <td><a href="/warehouse/{{warehouse.warehouse_id}}">{{warehouse.warehouse_id}}</a></td>
+            <td><a href="/warehouse/{{warehouse.warehouse_id}}">{{warehouse.city_name}} ({{warehouse.city_code}})</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<form action="/">
+    <input type="submit" value="Back"/>
+</form>
+
+{% endblock %}

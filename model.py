@@ -32,6 +32,21 @@ class Inventory(db.Model):
         return cls(sku=sku, warehouse_id=warehouse_id, name=name, description=description,
                     quantity=quantity, unit=unit, unit_cost=unit_cost)
 
+    @classmethod
+    def get_all_inventory(cls):
+        """Query for and return a list of all items in inventory."""
+
+        return (db.session.query(cls)
+                          .order_by(cls.sku.asc())
+                          .all())
+    
+    @classmethod
+    def get_item_by_sku(cls, sku):
+        """Get and return an item object by its SKU (Stock Keeping Unit).
+            Return none if not found."""
+    
+        return cls.query.get(sku)
+
 class Warehouse(db.Model):
     """A warehouse for inventory storage."""
 
@@ -46,13 +61,36 @@ class Warehouse(db.Model):
     inventory_item = db.relationship('Inventory', back_populates="warehouse")
 
     def __repr__(self):
-        return f"<Warehouse ID={self.warehouse_id} Location={self.location}"
+        return f"<Warehouse ID={self.warehouse_id} Location={self.city_name}"
 
     @classmethod
     def create_warehouse(cls, city_code, city_name):
         """Create and return a warehouse instance."""
 
         return cls(city_code=city_code, city_name=city_name)
+    
+    @classmethod
+    def get_all_warehouses_by_city(cls):
+        """Make query and return a list of all warehouses."""
+
+        return (db.session.query(cls)
+                          .order_by(cls.city_name.asc())
+                          .all())
+
+    @classmethod
+    def get_all_warehouses_by_id(cls):
+        """Make query and return a list of all warehouses."""
+
+        return (db.session.query(cls)
+                          .order_by(cls.warehouse_id.asc())
+                          .all())
+
+    @classmethod
+    def get_warehouse_by_id(cls, warehouse_id):
+        """Get and return a warehouse object by ID.
+            Return none if not found."""
+    
+        return cls.query.get(warehouse_id)
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///inventory", echo=True):

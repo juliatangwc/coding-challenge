@@ -5,12 +5,6 @@
 {% block body %}
 <h2>{{item.name}} - Details</h2>
 
-{% if item.image != "" %}
-
-<img src={{item.image}} width=300px height=auto>
-
-{% endif %} 
-
 <p><b>SKU:</b>{{item.sku}}</p>
 
 <p><b>Name:</b>{{item.name}}</p>
@@ -23,15 +17,9 @@
 
 <p><b>Unit Cost:</b>{{item.unit_cost}}</p>
 
-<p><b>Location:</b>{{item.location}}</p>
+<p><b>Warehouse:</b>{{item.warehouse.city_name}}({{item.warehouse.city_code}})</p>
 
-<form action= "/image" method="POST" enctype=multipart/form-data>
-  <input type="hidden" id="sku" name="sku" value={{item.sku}}>
-  <label for="file"><b>Image:</b></label>
-  <input type=file name=file id="file">
-  <button type="submit" value="upload">Upload</button>
-</form>
-<br>
+
 <form action= "/edit">
     <input type="hidden" id="sku" name="sku" value={{item.sku}}>
     <button type="submit" value="edit">Edit</button>
@@ -42,5 +30,8 @@
   <button type="submit" value="delete"
   onclick="return confirm('Are you sure you want to delete this item')">Delete</button>
 </form>
-
+<br>
+<form action="/inventory">
+  <input type="submit" value="Back"/>
+</form>
 {% endblock %}

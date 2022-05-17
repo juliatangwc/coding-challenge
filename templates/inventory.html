@@ -6,33 +6,31 @@
     <thead>
         <tr>
             <th>SKU</th>
-            <th>Image</td>
             <th>Name</th>
             <th>Description</th>
             <th>Quantity</th>
             <th>Unit</th>
-            <th>Location</th>
             <th>Unit Cost</th>
+            <th>Warehouse</th>
         </tr>
     </thead>
     <tbody>
         {% for item in inventory %}
         <tr>
             <td><a href="/inventory/{{item.sku}}">{{item.sku}}</a></td>
-            {% if item.image != "" %}
-            <td><img src={{item.thumbnail}}></td>
-            {% else %}
-            <td></td>
-            {% endif %}
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
             <td>{{item.quantity}}</td>
             <td>{{item.unit}}</td>
-            <td>{{item.location}}</td>
             <td>{{item.unit_cost}}</td>
+            <td><a href="/warehouse/{{item.warehouse.warehouse_id}}">{{item.warehouse.city_name}}({{item.warehouse.city_code}})</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<br>
+<form action="/">
+    <input type="submit" value="Back"/>
+</form>
 
 {% endblock %}
