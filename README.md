@@ -1,4 +1,4 @@
-# Shopify-Backend-Intern_Challenge
+# Shopify Backend Intern Challenge
 
 An inventory tracking web application for a logistics company with basic CRUD functionalities:
 - Create inventory items
@@ -8,7 +8,7 @@ An inventory tracking web application for a logistics company with basic CRUD fu
 
 The app includes an additional feature to create warehouses and assign inventory to specific locations.
 
-**Contents**
+##Contents##
 - [Tech Stack](#tech-stack)
 - [Justification](#justification)
 - [Feature Details](#feature-details)
@@ -19,11 +19,16 @@ The app includes an additional feature to create warehouses and assign inventory
 
 ## Tech Stack
 
-**Backend:** Python, PostgreSQL, Flask, SQLAlchemy, Jinja
+**Backend:** Python, Flask, SQLAlchemy, Jinja
 
 **Frontend:** HTML
 
-## Features
+**Database:** PostgreSQL
+
+## Justification
+In the backend, I chose to use Flask, a lightweight Python web framework, because of its flexibility in customization and ease in creating routes. For the database, I used the relational database postgreSQL due to its consistency to help ensure completeness of data, which is important for an inventory app. Finally, I used SQLAlchemly as the ORM to make queries in my Flask web app. 
+
+## Feature Details
 
 At the homepage, users are shown a navigation links to do the following:
 
