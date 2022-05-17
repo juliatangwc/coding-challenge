@@ -8,7 +8,7 @@ An inventory tracking web application for a logistics company with basic CRUD fu
 
 The app includes an additional feature to create warehouses and assign inventory to specific locations.
 
-##Contents##
+## Contents
 - [Tech Stack](#tech-stack)
 - [Justification](#justification)
 - [Feature Details](#feature-details)
