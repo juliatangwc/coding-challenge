@@ -1,10 +1,10 @@
 # Shopify-Backend-Intern_Challenge
 
 An inventory tracking web application for a logistics company with basic CRUD functionalities:
-*Create inventory items
-*Edit inventory items
-*Delete inventory items
-*View a list of inventory items
+- Create inventory items
+- Edit inventory items
+- Delete inventory items
+- View a list of inventory items
 
 The app includes an additional feature to create warehouses and assign inventory to specific locations.
 
