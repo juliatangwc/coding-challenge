@@ -167,6 +167,7 @@ def show_warehouse_details(warehouse_id):
 @app.route("/add-warehouse")
 def show_add_warehouse_form():
     """Show form to add a new warehouse."""
+    
     return render_template("add_warehouse.html")
 
 @app.route("/add-warehouse", methods=["POST"])
