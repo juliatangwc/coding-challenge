@@ -1,6 +1,4 @@
-"""Helper functions for CRUD operations."""
-
-from model import db, Inventory, connect_to_db
+"""Helper functions for inventory app for a logistic company."""
 
 def is_float(input_string):
     """Check if an input string is a float"""
@@ -41,7 +39,3 @@ def validate_add_warehouse_input(city_name, city_code):
             return False
     else:
         return True
-
-if __name__ == '__main__':
-    from server import app
-    connect_to_db(app)

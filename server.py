@@ -1,4 +1,4 @@
-"""Server for logistic inventory app."""
+"""Server for inventory app for a logistic company."""
 
 import os
 from flask import Flask, render_template, redirect, request, flash, session
