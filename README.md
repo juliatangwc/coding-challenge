@@ -109,7 +109,7 @@ Run the app on localhost
 python3 server.py
 ```
 ## Demo
-Run the inventory app on [Replit](https://replit.com/join/rruscqcvah-juliatangwc) and play with the [Demo](https://shopify-coding-challenge.juliatangwc.repl.co)
+Run the inventory app on [Replit](https://replit.com/@juliatangwc/shopify-coding-challenge) and play with the [Demo](https://shopify-coding-challenge.juliatangwc.repl.co)
 
 ## About the Developer
 Julia is a naturally curious person who enjoys problem-solving and learning new things along the way. She started a career in research upon graduating as a registered dietitian. For the past 6 years, she led research projects to develop dietetic service for the first cancer care center in Hong Kong and obtained a PhD in public health in the process. During that time, her research projects on health reminders and facilitative e-tasks in nutrition counseling introduced her to the exciting world of software engineering. She was inspired by how technology is changing every aspect of our lives and aspired to be part of the change. She graduated from Hackbright Academy in April 2022 and is excited to start making a positive impact with her skills.
